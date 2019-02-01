@@ -13,13 +13,14 @@ namespace Calcul
 {
     public partial class Form2 : Form
     {
-        float a, b;
-        int count;
-        bool sign = true;
+       //public float a, b;
+       // public int count;
+        
 
         public Form2()
         {
-            InitializeComponent();            
+            InitializeComponent();
+            Data.sign = true;
         }    
    
         private void button20_Click(object sender, EventArgs e)
@@ -144,8 +145,8 @@ namespace Calcul
 
         private void button2_Click(object sender, EventArgs e)
         {
-            a = float.Parse(Data.Text);
-            count = 1;
+            Data.a = float.Parse(Data.Text);
+            Data.count = 1;
             foreach (Control c in this.Owner.Controls)
             {
                 if (c is TextBox)
@@ -154,15 +155,15 @@ namespace Calcul
                     Data.Text = ((TextBox)c).Text;
                 }
                 if (c is Label)
-                    ((Label)c).Text = a.ToString() + "+";
+                    ((Label)c).Text = Data.a.ToString() + "+";
             }
-            sign = true;
+            Data.sign = true;
         }
 
         private void button7_Click(object sender, EventArgs e)
         {
-            a = float.Parse(Data.Text);
-            count = 2;
+            Data.a = float.Parse(Data.Text);
+           Data.count = 2;
             foreach (Control c in this.Owner.Controls)
             {
                 if (c is TextBox)
@@ -171,15 +172,15 @@ namespace Calcul
                     Data.Text = ((TextBox)c).Text;
                 }
                 if (c is Label)
-                    ((Label)c).Text = a.ToString() + "-";
+                    ((Label)c).Text = Data.a.ToString() + "-";
             }
-            sign = true;
+            Data.sign = true;
         }
 
         private void button11_Click(object sender, EventArgs e)
         {
-            a = float.Parse(Data.Text);
-            count = 3;
+            Data.a = float.Parse(Data.Text);
+            Data.count = 3;
             foreach (Control c in this.Owner.Controls)
             {
                 if (c is TextBox)
@@ -188,15 +189,15 @@ namespace Calcul
                     Data.Text = ((TextBox)c).Text;
                 }
                 if (c is Label)
-                    ((Label)c).Text = a.ToString() + "*";
+                    ((Label)c).Text = Data.a.ToString() + "*";
             }
-            sign = true;
+            Data.sign = true;
         }
 
         private void button15_Click(object sender, EventArgs e)
         {
-            a = float.Parse(Data.Text);
-            count = 4;
+            Data.a = float.Parse(Data.Text);
+            Data.count = 4;
             foreach (Control c in this.Owner.Controls)
             {
                 if (c is TextBox)
@@ -205,9 +206,9 @@ namespace Calcul
                     Data.Text = ((TextBox)c).Text;
                 }
                 if (c is Label)
-                    ((Label)c).Text = a.ToString() + "/";
+                    ((Label)c).Text = Data.a.ToString() + "/";
             }
-            sign = true;
+            Data.sign = true;
         }
 
         private void button17_Click(object sender, EventArgs e)
@@ -224,12 +225,19 @@ namespace Calcul
 
         private void button19_Click(object sender, EventArgs e) // =
         {
-            Calc();
             foreach (Control c in this.Owner.Controls)
             {
+                if (c is TextBox)
+                {
+                    Data.b = float.Parse(((TextBox)c).Text);
+                    ((TextBox)c).Clear();
+                     Data.Calc();
+                    ((TextBox)c).Text=Data.Text;
+                }
                 if (c is Label) 
                     ((Label)c).Text = "";
             }
+           
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -263,7 +271,7 @@ namespace Calcul
 
         private void button3_Click(object sender, EventArgs e) // +/-
         {
-            if (sign == true)
+            if (Data.sign == true)
             {
                 foreach (Control c in this.Owner.Controls)
                 {
@@ -271,11 +279,9 @@ namespace Calcul
                     {
                         ((TextBox)c).Text = "-" + ((TextBox)c).Text;
                         Data.Text = ((TextBox)c).Text;
-                    }            
-                    
-
+                    } 
                 }
-                sign = false;
+                Data.sign = false;
             }
             else
             {
@@ -287,65 +293,65 @@ namespace Calcul
                         Data.Text = ((TextBox)c).Text;
                     }
                 }
-                sign = true;
+                Data.sign = true;
             }
         }
 
-        public void Calc()
-        {
-            switch(count)
-            {
-                case 1:
-                    b = a + float.Parse(Data.Text);
-                    foreach (Control c in this.Owner.Controls)
-                    {
-                        if (c is TextBox)
-                        {
-                            ((TextBox)c).Clear();
-                            ((TextBox)c).Text += b.ToString();
-                            Data.Text = ((TextBox)c).Text;
-                        }
-                    }
-                    break;
-                case 2:
-                    b = a - float.Parse(Data.Text);
-                    foreach (Control c in this.Owner.Controls)
-                    {
-                        if (c is TextBox)
-                        {
-                            ((TextBox)c).Clear();
-                            ((TextBox)c).Text += b.ToString();
-                            Data.Text = ((TextBox)c).Text;
-                        }
-                    }
-                    break;
-                case 3:
-                    b = a * float.Parse(Data.Text);
-                    foreach (Control c in this.Owner.Controls)
-                    {
-                        if (c is TextBox)
-                        {
-                            ((TextBox)c).Clear();
-                            ((TextBox)c).Text += b.ToString();
-                            Data.Text = ((TextBox)c).Text;
-                        }
-                    }
-                    break;
-                case 4:
-                    b = a / float.Parse(Data.Text);
-                    foreach (Control c in this.Owner.Controls)
-                    {
-                        if (c is TextBox)
-                        {
-                            ((TextBox)c).Clear();
-                            ((TextBox)c).Text += b.ToString();
-                            Data.Text = ((TextBox)c).Text;
-                        }
-                    }
-                    break;
-                default:
-                    break;
-            }
-        }
+        //public void Calc()
+        //{
+        //    switch (Data.count)
+        //    {
+        //        case 1:
+        //            Data.b = Data.a + float.Parse(Data.Text);
+        //            foreach (Control c in this.Owner.Controls)
+        //            {
+        //                if (c is TextBox)
+        //                {
+        //                    ((TextBox)c).Clear();
+        //                    ((TextBox)c).Text += Data.b.ToString();
+        //                    Data.Text = ((TextBox)c).Text;
+        //                }
+        //            }
+        //            break;
+        //        case 2:
+        //            Data.b = Data.a - float.Parse(Data.Text);
+        //            foreach (Control c in this.Owner.Controls)
+        //            {
+        //                if (c is TextBox)
+        //                {
+        //                    ((TextBox)c).Clear();
+        //                    ((TextBox)c).Text += Data.b.ToString();
+        //                    Data.Text = ((TextBox)c).Text;
+        //                }
+        //            }
+        //            break;
+        //        case 3:
+        //            Data.b = Data.a * float.Parse(Data.Text);
+        //            foreach (Control c in this.Owner.Controls)
+        //            {
+        //                if (c is TextBox)
+        //                {
+        //                    ((TextBox)c).Clear();
+        //                    ((TextBox)c).Text += Data.b.ToString();
+        //                    Data.Text = ((TextBox)c).Text;
+        //                }
+        //            }
+        //            break;
+        //        case 4:
+        //            Data.b = Data.a / float.Parse(Data.Text);
+        //            foreach (Control c in this.Owner.Controls)
+        //            {
+        //                if (c is TextBox)
+        //                {
+        //                    ((TextBox)c).Clear();
+        //                    ((TextBox)c).Text += Data.b.ToString();
+        //                    Data.Text = ((TextBox)c).Text;
+        //                }
+        //            }
+        //            break;
+        //        default:
+        //            break;
+        //    }
+        //}
     }
 }
