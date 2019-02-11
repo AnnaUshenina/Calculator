@@ -13,140 +13,77 @@ namespace Calcul
 {
     public partial class Form2 : Form
     {
-       //public float a, b;
-       // public int count;
         
-
         public Form2()
         {
             InitializeComponent();
-            Data.sign = true;
+            Data.Sign = true;
         }    
-   
-        private void button20_Click(object sender, EventArgs e)
+        private void AddNumbers (char number)
         {
             foreach (Control c in this.Owner.Controls)
             {
                 if (c is TextBox)
                 {
-                    ((TextBox)c).Text += 0;
+                    ((TextBox)c).Text += number;
                     Data.Text = ((TextBox)c).Text;
                 }
             }
         }
-
-        private void button16_Click(object sender, EventArgs e)
+        private void Zero_Click(object sender, EventArgs e)
         {
-            foreach (Control c in this.Owner.Controls)
-            {
-                if (c is TextBox)
-                {
-                    ((TextBox)c).Text += 1;
-                    Data.Text = ((TextBox)c).Text;
-                }
-            }
+            AddNumbers('0');
+        }
+       
+        private void One_Click(object sender, EventArgs e)
+        {
+            AddNumbers('1');            
         }
 
-        private void button13_Click(object sender, EventArgs e)
+        private void Two_Click(object sender, EventArgs e)
         {
-            foreach (Control c in this.Owner.Controls)
-            {
-                if (c is TextBox)
-                {
-                    ((TextBox)c).Text += 2;
-                    Data.Text = ((TextBox)c).Text;
-                }
-            }
+            AddNumbers('2');
         }
 
-        private void button14_Click(object sender, EventArgs e)
+        private void Three_Click(object sender, EventArgs e)
         {
-            foreach (Control c in this.Owner.Controls)
-            {
-                if (c is TextBox)
-                {
-                    ((TextBox)c).Text += 3;
-                    Data.Text = ((TextBox)c).Text;
-                }
-            }
+            AddNumbers('3');
         }
 
-        private void button12_Click(object sender, EventArgs e)
+        private void Four_Click(object sender, EventArgs e)
         {
-            foreach (Control c in this.Owner.Controls)
-            {
-                if (c is TextBox)
-                {
-                    ((TextBox)c).Text += 4;
-                    Data.Text = ((TextBox)c).Text;
-                }
-            }
+            AddNumbers('4');
         }
 
-        private void button9_Click(object sender, EventArgs e)
+        private void Five_Click(object sender, EventArgs e)
         {
-            foreach (Control c in this.Owner.Controls)
-            {
-                if (c is TextBox)
-                {
-                    ((TextBox)c).Text += 5;
-                    Data.Text = ((TextBox)c).Text;
-                }
-            }
+            AddNumbers('5');
         }
 
-        private void button10_Click(object sender, EventArgs e)
+        private void Six_Click(object sender, EventArgs e)
         {
-            foreach (Control c in this.Owner.Controls)
-            {
-                if (c is TextBox)
-                {
-                    ((TextBox)c).Text += 6;
-                    Data.Text = ((TextBox)c).Text;
-                }
-            }
+            AddNumbers('6');
         }
 
-        private void button8_Click(object sender, EventArgs e)
+        private void Seven_Click(object sender, EventArgs e)
         {
-            foreach (Control c in this.Owner.Controls)
-            {
-                if (c is TextBox)
-                {
-                    ((TextBox)c).Text += 7;
-                    Data.Text = ((TextBox)c).Text;
-                }
-            }
+            AddNumbers('7');
         }
 
-        private void button5_Click(object sender, EventArgs e)
+        private void Eight_Click(object sender, EventArgs e)
         {
-            foreach (Control c in this.Owner.Controls)
-            {
-                if (c is TextBox)
-                {
-                    ((TextBox)c).Text += 8;
-                    Data.Text = ((TextBox)c).Text;
-                }
-            }
+            AddNumbers('8');
         }       
 
-        private void button6_Click(object sender, EventArgs e)
+        private void Nine_Click(object sender, EventArgs e)
         {
-            foreach (Control c in this.Owner.Controls)
-            {
-                if (c is TextBox)
-                {
-                    ((TextBox)c).Text += 9;
-                    Data.Text = ((TextBox)c).Text;
-                }
-            }
+            AddNumbers('9');
         }
 
-        private void button2_Click(object sender, EventArgs e)
+        private void Plus_Click(object sender, EventArgs e)
         {
-            Data.a = float.Parse(Data.Text);
-            Data.count = 1;
+            Data.A = float.Parse(Data.Text);
+            Data.MathOperationNumber = 1;
             foreach (Control c in this.Owner.Controls)
             {
                 if (c is TextBox)
@@ -155,15 +92,15 @@ namespace Calcul
                     Data.Text = ((TextBox)c).Text;
                 }
                 if (c is Label)
-                    ((Label)c).Text = Data.a.ToString() + "+";
+                    ((Label)c).Text = Data.A.ToString() + "+";
             }
-            Data.sign = true;
+            Data.Sign = true;
         }
 
-        private void button7_Click(object sender, EventArgs e)
+        private void Minus_Click(object sender, EventArgs e)
         {
-            Data.a = float.Parse(Data.Text);
-           Data.count = 2;
+            Data.A = float.Parse(Data.Text);
+            Data.MathOperationNumber = 2;
             foreach (Control c in this.Owner.Controls)
             {
                 if (c is TextBox)
@@ -172,15 +109,15 @@ namespace Calcul
                     Data.Text = ((TextBox)c).Text;
                 }
                 if (c is Label)
-                    ((Label)c).Text = Data.a.ToString() + "-";
+                    ((Label)c).Text = Data.A.ToString() + "-";
             }
-            Data.sign = true;
+            Data.Sign = true;
         }
 
-        private void button11_Click(object sender, EventArgs e)
+        private void Mult_Click(object sender, EventArgs e)
         {
-            Data.a = float.Parse(Data.Text);
-            Data.count = 3;
+            Data.A = float.Parse(Data.Text);
+            Data.MathOperationNumber = 3;            
             foreach (Control c in this.Owner.Controls)
             {
                 if (c is TextBox)
@@ -189,15 +126,15 @@ namespace Calcul
                     Data.Text = ((TextBox)c).Text;
                 }
                 if (c is Label)
-                    ((Label)c).Text = Data.a.ToString() + "*";
+                    ((Label)c).Text = Data.A.ToString() + "*";
             }
-            Data.sign = true;
+            Data.Sign = true;
         }
 
-        private void button15_Click(object sender, EventArgs e)
+        private void Divide_Click(object sender, EventArgs e)
         {
-            Data.a = float.Parse(Data.Text);
-            Data.count = 4;
+            Data.A = float.Parse(Data.Text);
+            Data.MathOperationNumber = 4;
             foreach (Control c in this.Owner.Controls)
             {
                 if (c is TextBox)
@@ -206,12 +143,12 @@ namespace Calcul
                     Data.Text = ((TextBox)c).Text;
                 }
                 if (c is Label)
-                    ((Label)c).Text = Data.a.ToString() + "/";
+                    ((Label)c).Text = Data.A.ToString() + "/";
             }
-            Data.sign = true;
+            Data.Sign = true;
         }
 
-        private void button17_Click(object sender, EventArgs e)
+        private void AddPoint_Click(object sender, EventArgs e)
         {
             foreach (Control c in this.Owner.Controls)
             {
@@ -223,13 +160,13 @@ namespace Calcul
             }
         }
 
-        private void button19_Click(object sender, EventArgs e) // =
+        private void Equals_Click(object sender, EventArgs e) // =
         {
             foreach (Control c in this.Owner.Controls)
             {
                 if (c is TextBox)
                 {
-                    Data.b = float.Parse(((TextBox)c).Text);
+                    Data.B = float.Parse(((TextBox)c).Text);
                     ((TextBox)c).Clear();
                      Data.Calc();
                     ((TextBox)c).Text=Data.Text;
@@ -240,7 +177,7 @@ namespace Calcul
            
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        private void ClsButton_Click(object sender, EventArgs e)
         {
             foreach (Control c in this.Owner.Controls)
             {
@@ -254,7 +191,7 @@ namespace Calcul
             }
         }
 
-        private void button4_Click(object sender, EventArgs e) // стиралка
+        private void Backspace_Click(object sender, EventArgs e) // стиралка
         {
             int lenght = Data.Text.Length - 1;
             foreach (Control c in this.Owner.Controls)
@@ -269,9 +206,9 @@ namespace Calcul
             }
         }
 
-        private void button3_Click(object sender, EventArgs e) // +/-
+        private void SingChange_Click(object sender, EventArgs e) // +/-
         {
-            if (Data.sign == true)
+            if (Data.Sign == true)
             {
                 foreach (Control c in this.Owner.Controls)
                 {
@@ -281,7 +218,7 @@ namespace Calcul
                         Data.Text = ((TextBox)c).Text;
                     } 
                 }
-                Data.sign = false;
+                Data.Sign = false;
             }
             else
             {
@@ -293,65 +230,10 @@ namespace Calcul
                         Data.Text = ((TextBox)c).Text;
                     }
                 }
-                Data.sign = true;
+                Data.Sign = true;
             }
         }
 
-        //public void Calc()
-        //{
-        //    switch (Data.count)
-        //    {
-        //        case 1:
-        //            Data.b = Data.a + float.Parse(Data.Text);
-        //            foreach (Control c in this.Owner.Controls)
-        //            {
-        //                if (c is TextBox)
-        //                {
-        //                    ((TextBox)c).Clear();
-        //                    ((TextBox)c).Text += Data.b.ToString();
-        //                    Data.Text = ((TextBox)c).Text;
-        //                }
-        //            }
-        //            break;
-        //        case 2:
-        //            Data.b = Data.a - float.Parse(Data.Text);
-        //            foreach (Control c in this.Owner.Controls)
-        //            {
-        //                if (c is TextBox)
-        //                {
-        //                    ((TextBox)c).Clear();
-        //                    ((TextBox)c).Text += Data.b.ToString();
-        //                    Data.Text = ((TextBox)c).Text;
-        //                }
-        //            }
-        //            break;
-        //        case 3:
-        //            Data.b = Data.a * float.Parse(Data.Text);
-        //            foreach (Control c in this.Owner.Controls)
-        //            {
-        //                if (c is TextBox)
-        //                {
-        //                    ((TextBox)c).Clear();
-        //                    ((TextBox)c).Text += Data.b.ToString();
-        //                    Data.Text = ((TextBox)c).Text;
-        //                }
-        //            }
-        //            break;
-        //        case 4:
-        //            Data.b = Data.a / float.Parse(Data.Text);
-        //            foreach (Control c in this.Owner.Controls)
-        //            {
-        //                if (c is TextBox)
-        //                {
-        //                    ((TextBox)c).Clear();
-        //                    ((TextBox)c).Text += Data.b.ToString();
-        //                    Data.Text = ((TextBox)c).Text;
-        //                }
-        //            }
-        //            break;
-        //        default:
-        //            break;
-        //    }
-        //}
+        
     }
 }

@@ -17,12 +17,9 @@ namespace Calcul
             InitializeComponent();
             Form2 form2 = new Form2();
             form2.Owner = this;
-            form2.Show();
-            
-            
+            form2.Show(); 
         }
-        //float a, b;
-        //int count;
+       
 
         private void textBox1_KeyPress(object sender, KeyPressEventArgs e)
         {
@@ -30,43 +27,43 @@ namespace Calcul
             if (!Char.IsDigit(number))
             {
                e.Handled = true;
-                Data.Text += textBox1.Text;
+               Data.Text += textBox1.Text;
             }
             if (e.KeyChar == 43)
             {
-                Data.count = 1;
-                Data.a = float.Parse(textBox1.Text);
+                Data.MathOperationNumber = 1;
+                Data.A = float.Parse(textBox1.Text);
                 textBox1.Clear();
-                label1.Text = Data.a.ToString() + "+";
-                Data.sign = true;
+                label1.Text = Data.A.ToString() + "+";
+                Data.Sign = true;
             }
             if (e.KeyChar == 45)
             {
-                Data.count = 2;
-                Data.a = float.Parse(textBox1.Text);
+                Data.MathOperationNumber = 2;
+                Data.A = float.Parse(textBox1.Text);
                 textBox1.Clear();
-                label1.Text = Data.a.ToString() + "-";
-                Data.sign = true;
+                label1.Text = Data.A.ToString() + "-";
+                Data.Sign = true;
             }
             if (e.KeyChar == 42)
             {
-                Data.count = 3;
-                Data.a = float.Parse(textBox1.Text);
+                Data.MathOperationNumber = 3;
+                Data.A = float.Parse(textBox1.Text);
                 textBox1.Clear();
-                label1.Text = Data.a.ToString() + "*";
-                Data.sign = true;
+                label1.Text = Data.A.ToString() + "*";
+                Data.Sign = true;
             }
             if (e.KeyChar == 47)
             {
-                Data.count = 4;
-                Data.a = float.Parse(textBox1.Text);
+                Data.MathOperationNumber = 4;
+                Data.A = float.Parse(textBox1.Text);
                 textBox1.Clear();
-                label1.Text = Data.a.ToString() + "/";
-                Data.sign = true;
+                label1.Text = Data.A.ToString() + "/";
+                Data.Sign = true;
             }
             if (e.KeyChar == 61) // =
             {
-                Data.b = float.Parse(textBox1.Text);
+                Data.B = float.Parse(textBox1.Text);
                 textBox1.Clear();
                 Data.Calc();
                 textBox1.Text = Data.Text;                      
