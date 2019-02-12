@@ -1,11 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace Calcul
@@ -17,65 +10,38 @@ namespace Calcul
             InitializeComponent();
             Form2 form2 = new Form2();
             form2.Owner = this;
-            form2.Show(); 
+            form2.Show();
+            Calculator.form = this;
         }
-       
-
+        
         private void textBox1_KeyPress(object sender, KeyPressEventArgs e)
         {
             char number = e.KeyChar;
+            int ascii = e.KeyChar;
             if (!Char.IsDigit(number))
             {
-               e.Handled = true;
-               Data.Text += textBox1.Text;
-            }
-            if (e.KeyChar == 43)
-            {
-                Data.MathOperationNumber = 1;
-                Data.A = float.Parse(textBox1.Text);
-                textBox1.Clear();
-                label1.Text = Data.A.ToString() + "+";
-                Data.Sign = true;
-            }
-            if (e.KeyChar == 45)
-            {
-                Data.MathOperationNumber = 2;
-                Data.A = float.Parse(textBox1.Text);
-                textBox1.Clear();
-                label1.Text = Data.A.ToString() + "-";
-                Data.Sign = true;
-            }
-            if (e.KeyChar == 42)
-            {
-                Data.MathOperationNumber = 3;
-                Data.A = float.Parse(textBox1.Text);
-                textBox1.Clear();
-                label1.Text = Data.A.ToString() + "*";
-                Data.Sign = true;
-            }
-            if (e.KeyChar == 47)
-            {
-                Data.MathOperationNumber = 4;
-                Data.A = float.Parse(textBox1.Text);
-                textBox1.Clear();
-                label1.Text = Data.A.ToString() + "/";
-                Data.Sign = true;
-            }
-            if (e.KeyChar == 61) // =
-            {
-                Data.B = float.Parse(textBox1.Text);
-                textBox1.Clear();
-                Data.Calc();
-                textBox1.Text = Data.Text;                      
-                label1.Text = "";
-            }
-            if (e.KeyChar == 08) // backspace
-            {
-                int lenght = textBox1.Text.Length - 1;
-                textBox1.Clear();
-                for (int i = 0; i < lenght; i++)
-                    textBox1.Text += Data.Text[i];
-                Data.Text = textBox1.Text;
+                e.Handled = true;
+                switch (ascii)
+                {
+                    case 43:
+                        Calculator.MathOperation('+', 1);
+                        break;
+                    case 45:
+                        Calculator.MathOperation('-', 2);
+                        break;
+                    case 42:
+                        Calculator.MathOperation('*', 3);
+                        break;
+                    case 47:
+                        Calculator.MathOperation('/', 4);
+                        break;
+                    case 61:                        
+                        Calculator.Result();
+                        break;
+                    case 08:                        
+                        Calculator.Backspace();
+                        break;
+                }
             }
         }
 
