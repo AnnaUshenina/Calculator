@@ -1,6 +1,6 @@
 ﻿namespace Calcul
 {
-    partial class Form2
+    partial class ButtonsForm
     {
         /// <summary>
         /// Required designer variable.
@@ -52,7 +52,7 @@
             // ClsButton
             // 
             this.ClsButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.ClsButton.Location = new System.Drawing.Point(38, 109);
+            this.ClsButton.Location = new System.Drawing.Point(12, 10);
             this.ClsButton.Name = "ClsButton";
             this.ClsButton.Size = new System.Drawing.Size(45, 35);
             this.ClsButton.TabIndex = 0;
@@ -63,18 +63,18 @@
             // Plus
             // 
             this.Plus.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.Plus.Location = new System.Drawing.Point(191, 109);
+            this.Plus.Location = new System.Drawing.Point(165, 10);
             this.Plus.Name = "Plus";
             this.Plus.Size = new System.Drawing.Size(45, 35);
             this.Plus.TabIndex = 1;
             this.Plus.Text = "+";
             this.Plus.UseVisualStyleBackColor = false;
-            this.Plus.Click += new System.EventHandler(this.MathOperationCall);
+            this.Plus.Click += new System.EventHandler(this.Plus_Click);
             // 
             // SingChange
             // 
             this.SingChange.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.SingChange.Location = new System.Drawing.Point(140, 109);
+            this.SingChange.Location = new System.Drawing.Point(114, 10);
             this.SingChange.Name = "SingChange";
             this.SingChange.Size = new System.Drawing.Size(45, 35);
             this.SingChange.TabIndex = 2;
@@ -85,18 +85,18 @@
             // Backspace
             // 
             this.Backspace.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.Backspace.Location = new System.Drawing.Point(89, 109);
+            this.Backspace.Location = new System.Drawing.Point(63, 10);
             this.Backspace.Name = "Backspace";
             this.Backspace.Size = new System.Drawing.Size(45, 35);
             this.Backspace.TabIndex = 3;
             this.Backspace.Text = "<-";
             this.Backspace.UseVisualStyleBackColor = false;
-            this.Backspace.Click += new System.EventHandler(this.Backspace_Click);
+            //this.Backspace.Click += new System.EventHandler(this.Backspace_Click);
             // 
             // Eight
             // 
             this.Eight.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.Eight.Location = new System.Drawing.Point(89, 150);
+            this.Eight.Location = new System.Drawing.Point(63, 51);
             this.Eight.Name = "Eight";
             this.Eight.Size = new System.Drawing.Size(45, 35);
             this.Eight.TabIndex = 7;
@@ -107,7 +107,7 @@
             // Nine
             // 
             this.Nine.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.Nine.Location = new System.Drawing.Point(140, 150);
+            this.Nine.Location = new System.Drawing.Point(114, 51);
             this.Nine.Name = "Nine";
             this.Nine.Size = new System.Drawing.Size(45, 35);
             this.Nine.TabIndex = 6;
@@ -118,18 +118,18 @@
             // Minus
             // 
             this.Minus.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.Minus.Location = new System.Drawing.Point(191, 150);
+            this.Minus.Location = new System.Drawing.Point(165, 51);
             this.Minus.Name = "Minus";
             this.Minus.Size = new System.Drawing.Size(45, 35);
             this.Minus.TabIndex = 5;
             this.Minus.Text = "-";
             this.Minus.UseVisualStyleBackColor = false;
-            this.Minus.Click += new System.EventHandler(this.MathOperationCall);
+            this.Minus.Click += new System.EventHandler(this.Minus_Click);
             // 
             // Seven
             // 
             this.Seven.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.Seven.Location = new System.Drawing.Point(38, 150);
+            this.Seven.Location = new System.Drawing.Point(12, 51);
             this.Seven.Name = "Seven";
             this.Seven.Size = new System.Drawing.Size(45, 35);
             this.Seven.TabIndex = 4;
@@ -140,7 +140,7 @@
             // Five
             // 
             this.Five.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.Five.Location = new System.Drawing.Point(89, 191);
+            this.Five.Location = new System.Drawing.Point(63, 92);
             this.Five.Name = "Five";
             this.Five.Size = new System.Drawing.Size(45, 35);
             this.Five.TabIndex = 11;
@@ -151,7 +151,7 @@
             // Six
             // 
             this.Six.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.Six.Location = new System.Drawing.Point(140, 191);
+            this.Six.Location = new System.Drawing.Point(114, 92);
             this.Six.Name = "Six";
             this.Six.Size = new System.Drawing.Size(45, 35);
             this.Six.TabIndex = 10;
@@ -162,18 +162,18 @@
             // Mult
             // 
             this.Mult.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.Mult.Location = new System.Drawing.Point(191, 191);
+            this.Mult.Location = new System.Drawing.Point(165, 92);
             this.Mult.Name = "Mult";
             this.Mult.Size = new System.Drawing.Size(45, 35);
             this.Mult.TabIndex = 9;
             this.Mult.Text = "*";
             this.Mult.UseVisualStyleBackColor = false;
-            this.Mult.Click += new System.EventHandler(this.MathOperationCall);
+            this.Mult.Click += new System.EventHandler(this.Mult_Click);
             // 
             // Four
             // 
             this.Four.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.Four.Location = new System.Drawing.Point(38, 191);
+            this.Four.Location = new System.Drawing.Point(12, 92);
             this.Four.Name = "Four";
             this.Four.Size = new System.Drawing.Size(45, 35);
             this.Four.TabIndex = 8;
@@ -184,7 +184,7 @@
             // Two
             // 
             this.Two.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.Two.Location = new System.Drawing.Point(89, 232);
+            this.Two.Location = new System.Drawing.Point(63, 133);
             this.Two.Name = "Two";
             this.Two.Size = new System.Drawing.Size(45, 35);
             this.Two.TabIndex = 15;
@@ -195,7 +195,7 @@
             // Three
             // 
             this.Three.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.Three.Location = new System.Drawing.Point(140, 232);
+            this.Three.Location = new System.Drawing.Point(114, 133);
             this.Three.Name = "Three";
             this.Three.Size = new System.Drawing.Size(45, 35);
             this.Three.TabIndex = 14;
@@ -206,18 +206,18 @@
             // Divide
             // 
             this.Divide.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.Divide.Location = new System.Drawing.Point(191, 232);
+            this.Divide.Location = new System.Drawing.Point(165, 133);
             this.Divide.Name = "Divide";
             this.Divide.Size = new System.Drawing.Size(45, 35);
             this.Divide.TabIndex = 13;
             this.Divide.Text = "/";
             this.Divide.UseVisualStyleBackColor = false;
-            this.Divide.Click += new System.EventHandler(this.MathOperationCall);
+            this.Divide.Click += new System.EventHandler(this.Divide_Click);
             // 
             // One
             // 
             this.One.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.One.Location = new System.Drawing.Point(38, 232);
+            this.One.Location = new System.Drawing.Point(12, 133);
             this.One.Name = "One";
             this.One.Size = new System.Drawing.Size(45, 35);
             this.One.TabIndex = 12;
@@ -228,7 +228,7 @@
             // AddPoint
             // 
             this.AddPoint.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.AddPoint.Location = new System.Drawing.Point(89, 273);
+            this.AddPoint.Location = new System.Drawing.Point(63, 174);
             this.AddPoint.Name = "AddPoint";
             this.AddPoint.Size = new System.Drawing.Size(45, 35);
             this.AddPoint.TabIndex = 19;
@@ -239,18 +239,18 @@
             // Equals
             // 
             this.Equals.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.Equals.Location = new System.Drawing.Point(140, 273);
+            this.Equals.Location = new System.Drawing.Point(114, 174);
             this.Equals.Name = "Equals";
             this.Equals.Size = new System.Drawing.Size(96, 35);
             this.Equals.TabIndex = 17;
             this.Equals.Text = "=";
             this.Equals.UseVisualStyleBackColor = false;
-            this.Equals.Click += new System.EventHandler(this.MathOperationCall);
+            this.Equals.Click += new System.EventHandler(this.Equals_Click);
             // 
             // Zero
             // 
             this.Zero.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.Zero.Location = new System.Drawing.Point(38, 273);
+            this.Zero.Location = new System.Drawing.Point(12, 174);
             this.Zero.Name = "Zero";
             this.Zero.Size = new System.Drawing.Size(45, 35);
             this.Zero.TabIndex = 16;
@@ -258,11 +258,11 @@
             this.Zero.UseVisualStyleBackColor = false;
             this.Zero.Click += new System.EventHandler(this.AddNumbers);
             // 
-            // Form2
+            // ButtonsForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(402, 354);
+            this.ClientSize = new System.Drawing.Size(223, 227);
             this.Controls.Add(this.AddPoint);
             this.Controls.Add(this.Equals);
             this.Controls.Add(this.Zero);
@@ -282,8 +282,8 @@
             this.Controls.Add(this.SingChange);
             this.Controls.Add(this.Plus);
             this.Controls.Add(this.ClsButton);
-            this.Name = "Form2";
-            this.Text = "Form2";
+            this.Name = "ButtonsForm";
+            this.Text = "Buttons";
             this.ResumeLayout(false);
 
         }

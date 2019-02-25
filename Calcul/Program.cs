@@ -5,17 +5,19 @@ using System.Windows.Forms;
 
 namespace Calcul
 {
-    static class Program
-    {      
+    public static class Program
+    {
+        public static InputAndOutputForm firstform = new InputAndOutputForm();
+
         /// <summary>
         /// Главная точка входа для приложения.
         /// </summary>
         [STAThread]
-        static void Main()
+        public static void Main()
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new Form1());
+            Application.Run(firstform);
         }
     }
     
@@ -23,73 +25,76 @@ namespace Calcul
     {
         public static float A { get; set; }
         public static float B { get; set; }
-        public static int MathOperationNumber { get; set; }
-        public static bool Sign { get; set; }
+        
 
-        public static Form1 form = (Form1)Application.OpenForms["Form1"];
-        
-        public static void MathOperation(char operation, int number)
+        public static void Plus()
         {
-            MathOperationNumber = number;
-            A = float.Parse(form.textBox1.Text);
-            form.textBox1.Clear();
-            form.label1.Text = A.ToString() + operation;
-            Sign = true;
+           // A = float.Parse(Program.firstform.InputBox.Text); 
+            Program.firstform.firstNumberLabel.Text = Program.firstform.InputBox.Text + "+";
+            Program.firstform.InputBox.Clear();
         }
-        
-        public static void ClearScreen ()
+        public static void Minus()
         {
-           form.label1.Text = "";
-           form.textBox1.Text = "";      
+            A = float.Parse(Program.firstform.InputBox.Text);
+            Program.firstform.firstNumberLabel.Text = A.ToString() + "-";
+            Program.firstform.InputBox.Clear();
         }
+        public static void Divide()
+        {
+            A = float.Parse(Program.firstform.InputBox.Text);
+            Program.firstform.firstNumberLabel.Text = A.ToString() + "/";
+            Program.firstform.InputBox.Clear();
+        }
+        public static void Mult()
+        {
+            A = float.Parse(Program.firstform.InputBox.Text);
+            Program.firstform.firstNumberLabel.Text = A.ToString() + "*";
+            Program.firstform.InputBox.Clear();
+        }
+             
         public static void AddPoint()
         {
-            form.textBox1.Text += ",";
+            Program.firstform.InputBox.Text += ",";
         }
 
         public static void SignChange()
         {
-            if (Sign)
+            string numberB = Program.firstform.firstNumberLabel.Text;
+            if (numberB[0] !='-')
             {
-                form.textBox1.Text = "-" + form.textBox1.Text;
-                Sign = !Sign;
+                Program.firstform.InputBox.Text = "-" + Program.firstform.InputBox.Text;
             }
             else
             {
-                form.textBox1.Text = form.textBox1.Text.Replace("-", "");
-                Sign = !Sign;
+                Program.firstform.InputBox.Text = Program.firstform.InputBox.Text.Replace("-", "");
             }
-        }
-        public static void Backspace ()
-        {
-            int lenght = form.textBox1.Text.Length - 1;
-            string bufferText = form.textBox1.Text;
-            form.textBox1.Clear();
-            for (int i = 0; i < lenght; i++)
-                form.textBox1.Text += bufferText[i];
-        }
+        }      
         
         public static void Result()
-        {           
-            B = float.Parse(form.textBox1.Text);
-            form.textBox1.Clear();
-            switch (MathOperationNumber)
+        {
+            string stringA = Program.firstform.InputBox.Text;
+            char operation = stringA[stringA.Length - 1];
+            stringA = stringA.Remove(stringA.Length - 1);
+            A = float.Parse(stringA);
+            B = float.Parse(Program.firstform.InputBox.Text);
+            Program.firstform.InputBox.Clear();
+            switch (operation)
             {
-                case 1:
+                case ('+'):
                     A += B;
                     break;
-                case 2:
+                case ('-'):
                     A -= B;
                     break;
-                case 3:
+                case ('*'):
                     A *= B;
                     break;
-                case 4:
+                case ('/'):
                     A /= B;
                     break;
             }
-            form.textBox1.Text = A.ToString();
-            form.label1.Text = "";
+            Program.firstform.InputBox.Text = A.ToString();
+            Program.firstform.firstNumberLabel.Text = "";
         }
     }
 

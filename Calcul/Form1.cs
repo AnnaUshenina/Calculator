@@ -3,43 +3,40 @@ using System.Windows.Forms;
 
 namespace Calcul
 {
-    public partial class Form1 : Form
+    public partial class InputAndOutputForm : Form
     {
-        public Form1()
+        public ButtonsForm buttonsForm = new ButtonsForm(); 
+        public InputAndOutputForm()
         {
             InitializeComponent();
-            Form2 form2 = new Form2();
-            form2.Owner = this;
-            form2.Show();
-            Calculator.form = this;
+            buttonsForm.ShowDialog();     
         }
         
         private void textBox1_KeyPress(object sender, KeyPressEventArgs e)
         {
-            char number = e.KeyChar;
-            int ascii = e.KeyChar;
-            if (!Char.IsDigit(number))
+            char KeyAsciiNumber = e.KeyChar;
+            if (!char.IsDigit(KeyAsciiNumber))
             {
                 e.Handled = true;
-                switch (ascii)
+                switch ((int)KeyAsciiNumber)
                 {
                     case 43:
-                        Calculator.MathOperation('+', 1);
+                        Calculator.Plus();
                         break;
                     case 45:
-                        Calculator.MathOperation('-', 2);
+                        Calculator.Minus();
                         break;
                     case 42:
-                        Calculator.MathOperation('*', 3);
+                        Calculator.Mult();
                         break;
                     case 47:
-                        Calculator.MathOperation('/', 4);
+                        Calculator.Divide();
                         break;
                     case 61:                        
                         Calculator.Result();
                         break;
-                    case 08:                        
-                        Calculator.Backspace();
+                    case 08:
+                        buttonsForm.Backspace_Click();
                         break;
                 }
             }
