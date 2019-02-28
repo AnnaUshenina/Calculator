@@ -32,24 +32,28 @@ namespace Calcul
                     case 47:
                         calculate.Divide();
                         break;
-                    case 61:                        
+                    case 61:   
                         calculate.Result();
                         break;
                     case 08:
-                        buttonsForm.Backspace_Click();
+                        int lenght = InputBox.Text.Length - 1;
+                        string bufferText = InputBox.Text;
+                        InputBox.Clear();
+                        for (int i = 0; i < lenght; i++)
+                            InputBox.Text += bufferText[i];
                         break;
-                    case 67:
-                        buttonsForm.ClsButton_Click();
+                    case 99:
+                        firstNumberLabel.Text = "";
+                        InputBox.Text = "";
                         break;
-                    case 44:
-                        buttonsForm.AddPoint_Click();
+                    case 46:
+                        InputBox.Text += ",";
                         break;
                     case 13:
-                        calculate.Result();
-                        break;
+                        goto case 61;
+                        
                 }
             }
         }
-        
     }
 }

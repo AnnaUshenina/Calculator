@@ -58,6 +58,7 @@
             this.ClsButton.TabIndex = 0;
             this.ClsButton.Text = "Clean";
             this.ClsButton.UseVisualStyleBackColor = false;
+            this.ClsButton.Click += new System.EventHandler(this.ClsButton_Click);
             // 
             // Plus
             // 
@@ -90,6 +91,7 @@
             this.Backspace.TabIndex = 3;
             this.Backspace.Text = "<-";
             this.Backspace.UseVisualStyleBackColor = false;
+            this.Backspace.Click += new System.EventHandler(this.Backspace_Click);
             // 
             // Eight
             // 
@@ -232,6 +234,7 @@
             this.AddPoint.TabIndex = 19;
             this.AddPoint.Text = ".";
             this.AddPoint.UseVisualStyleBackColor = false;
+            this.AddPoint.Click += new System.EventHandler(this.AddPoint_Click);
             // 
             // Result
             // 

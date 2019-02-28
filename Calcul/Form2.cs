@@ -12,9 +12,10 @@ namespace Calcul
         }   
         private void AddNumbers (object sender, EventArgs e)
         {
+            //if (Program.firstform.firstNumberLabel.Text == "")
+            //    Program.firstform.InputBox.Text = "";
             Button NumberButton = sender as Button;
             Program.firstform.InputBox.Text += NumberButton.Text;
-           
         }
         private void Plus_Click(object sender, EventArgs e)
         {
@@ -36,17 +37,17 @@ namespace Calcul
         {
             calculate.Result();
         }
-        public void AddPoint_Click()
+        public void AddPoint_Click(object sender, EventArgs e)
         {
             Program.firstform.InputBox.Text += ",";
         }
         
-        public void ClsButton_Click()
+        public void ClsButton_Click(object sender, EventArgs e)
         {
             Program.firstform.firstNumberLabel.Text = "";
             Program.firstform.InputBox.Text = "";
         }
-        public void Backspace_Click() 
+        public void Backspace_Click(object sender, EventArgs e) 
         {
             int lenght = Program.firstform.InputBox.Text.Length - 1;
             string bufferText = Program.firstform.InputBox.Text;

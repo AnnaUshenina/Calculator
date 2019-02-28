@@ -41,7 +41,6 @@
             this.InputBox.Size = new System.Drawing.Size(234, 56);
             this.InputBox.TabIndex = 0;
             this.InputBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
-            this.InputBox.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
             this.InputBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBox1_KeyPress);
             // 
             // firstNumberLabel
