@@ -5,11 +5,11 @@ namespace Calcul
 {
     public partial class ButtonsForm : Form
     {        
+        public Calculate calculate = new Calculate();
         public ButtonsForm()
         {
             InitializeComponent();
         }   
-        
         private void AddNumbers (object sender, EventArgs e)
         {
             Button NumberButton = sender as Button;
@@ -18,35 +18,34 @@ namespace Calcul
         }
         private void Plus_Click(object sender, EventArgs e)
         {
-            Calculator.Plus();
+            calculate.Plus();
         }
         private void Minus_Click(object sender, EventArgs e)
         {
-            Calculator.Minus();
+            calculate.Minus();
         }
         private void Divide_Click(object sender, EventArgs e)
         {
-            Calculator.Divide();
+            calculate.Divide();
         }
         private void Mult_Click(object sender, EventArgs e)
         {
-            Calculator.Mult();
+            calculate.Mult();
         }
-        private void Equals_Click(object sender, EventArgs e)
+        private void Result_Click(object sender, EventArgs e)
         {
-            Calculator.Result();
+            calculate.Result();
         }
-        private void AddPoint_Click(object sender, EventArgs e)
+        public void AddPoint_Click()
         {
-            Calculator.AddPoint();
+            Program.firstform.InputBox.Text += ",";
         }
         
-        private void ClsButton_Click(object sender, EventArgs e)
+        public void ClsButton_Click()
         {
             Program.firstform.firstNumberLabel.Text = "";
             Program.firstform.InputBox.Text = "";
         }
-
         public void Backspace_Click() 
         {
             int lenght = Program.firstform.InputBox.Text.Length - 1;
@@ -55,10 +54,9 @@ namespace Calcul
             for (int i = 0; i < lenght; i++)
                 Program.firstform.InputBox.Text += bufferText[i];
         }
-
         private void SingChange_Click(object sender, EventArgs e) 
         {
-            Calculator.SignChange();
+            calculate.SignChange();
         }
     }
 }

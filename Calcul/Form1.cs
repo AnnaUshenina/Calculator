@@ -5,13 +5,13 @@ namespace Calcul
 {
     public partial class InputAndOutputForm : Form
     {
+        public Calculate calculate = new Calculate();
         public ButtonsForm buttonsForm = new ButtonsForm(); 
         public InputAndOutputForm()
         {
             InitializeComponent();
-            buttonsForm.ShowDialog();     
+            buttonsForm.Show();     
         }
-        
         private void textBox1_KeyPress(object sender, KeyPressEventArgs e)
         {
             char KeyAsciiNumber = e.KeyChar;
@@ -21,31 +21,35 @@ namespace Calcul
                 switch ((int)KeyAsciiNumber)
                 {
                     case 43:
-                        Calculator.Plus();
+                        calculate.Plus();
                         break;
                     case 45:
-                        Calculator.Minus();
+                        calculate.Minus();
                         break;
                     case 42:
-                        Calculator.Mult();
+                        calculate.Mult();
                         break;
                     case 47:
-                        Calculator.Divide();
+                        calculate.Divide();
                         break;
                     case 61:                        
-                        Calculator.Result();
+                        calculate.Result();
                         break;
                     case 08:
                         buttonsForm.Backspace_Click();
                         break;
+                    case 67:
+                        buttonsForm.ClsButton_Click();
+                        break;
+                    case 44:
+                        buttonsForm.AddPoint_Click();
+                        break;
+                    case 13:
+                        calculate.Result();
+                        break;
                 }
             }
         }
-
-        private void textBox1_TextChanged(object sender, EventArgs e)
-        {
-           ////////
-        }
-
+        
     }
 }

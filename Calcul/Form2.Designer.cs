@@ -45,7 +45,7 @@
             this.Divide = new System.Windows.Forms.Button();
             this.One = new System.Windows.Forms.Button();
             this.AddPoint = new System.Windows.Forms.Button();
-            this.Equals = new System.Windows.Forms.Button();
+            this.Result = new System.Windows.Forms.Button();
             this.Zero = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
@@ -58,7 +58,6 @@
             this.ClsButton.TabIndex = 0;
             this.ClsButton.Text = "Clean";
             this.ClsButton.UseVisualStyleBackColor = false;
-            this.ClsButton.Click += new System.EventHandler(this.ClsButton_Click);
             // 
             // Plus
             // 
@@ -91,7 +90,6 @@
             this.Backspace.TabIndex = 3;
             this.Backspace.Text = "<-";
             this.Backspace.UseVisualStyleBackColor = false;
-            //this.Backspace.Click += new System.EventHandler(this.Backspace_Click);
             // 
             // Eight
             // 
@@ -234,18 +232,17 @@
             this.AddPoint.TabIndex = 19;
             this.AddPoint.Text = ".";
             this.AddPoint.UseVisualStyleBackColor = false;
-            this.AddPoint.Click += new System.EventHandler(this.AddPoint_Click);
             // 
-            // Equals
+            // Result
             // 
-            this.Equals.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.Equals.Location = new System.Drawing.Point(114, 174);
-            this.Equals.Name = "Equals";
-            this.Equals.Size = new System.Drawing.Size(96, 35);
-            this.Equals.TabIndex = 17;
-            this.Equals.Text = "=";
-            this.Equals.UseVisualStyleBackColor = false;
-            this.Equals.Click += new System.EventHandler(this.Equals_Click);
+            this.Result.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.Result.Location = new System.Drawing.Point(114, 174);
+            this.Result.Name = "Result";
+            this.Result.Size = new System.Drawing.Size(96, 35);
+            this.Result.TabIndex = 17;
+            this.Result.Text = "=";
+            this.Result.UseVisualStyleBackColor = false;
+            this.Result.Click += new System.EventHandler(this.Result_Click);
             // 
             // Zero
             // 
@@ -264,7 +261,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(223, 227);
             this.Controls.Add(this.AddPoint);
-            this.Controls.Add(this.Equals);
+            this.Controls.Add(this.Result);
             this.Controls.Add(this.Zero);
             this.Controls.Add(this.Two);
             this.Controls.Add(this.Three);
@@ -307,7 +304,7 @@
         private System.Windows.Forms.Button Divide;
         private System.Windows.Forms.Button One;
         private System.Windows.Forms.Button AddPoint;
-        private System.Windows.Forms.Button Equals;
+        private System.Windows.Forms.Button Result;
         private System.Windows.Forms.Button Zero;
     }
 }
