@@ -6,46 +6,54 @@ namespace Calcul
     public partial class ButtonsForm : Form
     {        
         public Calculate calculate = new Calculate();
+        public Interface Interface = new Interface();
         public ButtonsForm()
         {
             InitializeComponent();
         }   
         private void AddNumbers (object sender, EventArgs e)
         {
-            //if (Program.firstform.firstNumberLabel.Text == "")
-            //    Program.firstform.InputBox.Text = "";
+            
             Button NumberButton = sender as Button;
             Program.firstform.InputBox.Text += NumberButton.Text;
         }
         private void Plus_Click(object sender, EventArgs e)
         {
             calculate.Plus();
+            Interface.Clean(Interface.NumbericBox.Text);
+            Interface.NumbericLabel.Text = calculate.A;
         }
         private void Minus_Click(object sender, EventArgs e)
         {
             calculate.Minus();
+            Interface.NumbericLabel.Text = calculate.A;
+            Interface.NumbericBox.Text = "";
         }
         private void Divide_Click(object sender, EventArgs e)
         {
             calculate.Divide();
+            Interface.NumbericLabel.Text = calculate.A;
+            Interface.NumbericBox.Text = "";
         }
         private void Mult_Click(object sender, EventArgs e)
         {
             calculate.Mult();
+            Interface.NumbericLabel.Text = calculate.A;
+            Interface.NumbericBox.Text = "";
         }
         private void Result_Click(object sender, EventArgs e)
         {
-            calculate.Result();
+            var result = calculate.Result();
         }
         public void AddPoint_Click(object sender, EventArgs e)
         {
-            Program.firstform.InputBox.Text += ",";
+            Interface.NumbericBox.Text += ",";
         }
         
         public void ClsButton_Click(object sender, EventArgs e)
         {
-            Program.firstform.firstNumberLabel.Text = "";
-            Program.firstform.InputBox.Text = "";
+            Interface.NumbericBox.Text = "";
+            Interface.NumbericLabel.Text = "";
         }
         public void Backspace_Click(object sender, EventArgs e) 
         {

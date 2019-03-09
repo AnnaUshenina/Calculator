@@ -1,86 +1,94 @@
-﻿
+﻿using System.Windows.Forms;
+
 
 namespace Calcul
 {
+    
     public class Calculate
     {
-        public float A;
-        public float B;
-        
+        public string A;
+        public string B;
+        public Interface Interface = new Interface();
+
+        private bool IsEmpty (string str)
+        {
+            if (str == "")
+                return true;
+            return false;
+
+        }
         public  void Plus()
         {
-            if (Program.firstform.firstNumberLabel.Text != "" || Program.firstform.InputBox.Text != "")
-            {
-                Program.firstform.firstNumberLabel.Text = Program.firstform.InputBox.Text + "+";
-                Program.firstform.InputBox.Clear();
-            }
+            
+             if (!IsEmpty(Interface.NumbericBox.Text) || !IsEmpty(Interface.NumbericBox.Text))
+                A = Interface.NumbericBox.Text + "+";
+             
         }
-        public  void Minus()
+        public void Minus()
         {
-            if (Program.firstform.firstNumberLabel.Text != "" || Program.firstform.InputBox.Text != "")
+            if (!IsEmpty(Interface.NumbericLabel.Text) || !IsEmpty(Interface.NumbericBox.Text))
             {
-                Program.firstform.firstNumberLabel.Text = Program.firstform.InputBox.Text + "-";
-                Program.firstform.InputBox.Clear();
+                A = Interface.NumbericBox.Text + "-";
             }
         }
         public  void Divide()
         {
-            if (Program.firstform.firstNumberLabel.Text != "" || Program.firstform.InputBox.Text != "")
+            if (!IsEmpty(Interface.NumbericLabel.Text) || !IsEmpty(Interface.NumbericBox.Text))
             {
-                Program.firstform.firstNumberLabel.Text = Program.firstform.InputBox.Text + "/";
-                Program.firstform.InputBox.Clear();
+                A = Interface.NumbericBox.Text + "/";
             }
         }
         public  void Mult()
         {
-            if (Program.firstform.firstNumberLabel.Text != "" || Program.firstform.InputBox.Text != "")
+            if (!IsEmpty(Interface.NumbericLabel.Text) || !IsEmpty(Interface.NumbericBox.Text))
             {
-                Program.firstform.firstNumberLabel.Text = Program.firstform.InputBox.Text + "*";
-                Program.firstform.InputBox.Clear();
+                A = Interface.NumbericBox.Text + "*";
             }
         }
         public  void SignChange()
         {
-            string numberB = Program.firstform.InputBox.Text;
-            if (numberB[0] != '-')
+            if (!IsEmpty(Interface.NumbericLabel.Text) || !IsEmpty(Interface.NumbericBox.Text))
             {
-                Program.firstform.InputBox.Text = "-" + Program.firstform.InputBox.Text;
-            }
-            else
-            {
-                Program.firstform.InputBox.Text = Program.firstform.InputBox.Text.Replace("-", "");
+                string numberB = Interface.NumbericBox.Text;
+                if (numberB[0] != '-')
+                {
+                    Program.firstform.InputBox.Text = "-" + Program.firstform.InputBox.Text;
+                }
+                else
+                {
+                    Program.firstform.InputBox.Text = Program.firstform.InputBox.Text.Replace("-", "");
+                }
             }
         }
 
-        public void Result()
+        public float Result()
         {
+            float result=0;
             string stringA = Program.firstform.firstNumberLabel.Text;
             string stringB = Program.firstform.InputBox.Text;
-            if (stringA != "" && stringB != "")
+            if (!IsEmpty(stringA) || !IsEmpty(stringB))
             {
                 char operation = stringA[stringA.Length - 1];
                 stringA = stringA.Remove(stringA.Length - 1);
                 A = float.Parse(stringA);
                 B = float.Parse(stringB);
-                Program.firstform.InputBox.Clear();
                 switch (operation)
                 {
                     case ('+'):
-                        A += B;
+                        result = A + B;
                         break;
                     case ('-'):
-                        A -= B;
+                        result = A - B;
                         break;
                     case ('*'):
-                        A *= B;
+                        result = A * B;
                         break;
                     case ('/'):
-                        A /= B;
+                       result = A / B;
                         break;
                 }
-                Program.firstform.InputBox.Text = A.ToString();
-                Program.firstform.firstNumberLabel.Text = "";
             }
+            return result;
         }
     }
 }

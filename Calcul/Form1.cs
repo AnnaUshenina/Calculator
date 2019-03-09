@@ -6,12 +6,14 @@ namespace Calcul
     public partial class InputAndOutputForm : Form
     {
         public Calculate calculate = new Calculate();
+
         public ButtonsForm buttonsForm = new ButtonsForm(); 
         public InputAndOutputForm()
         {
             InitializeComponent();
             buttonsForm.Show();     
         }
+        
         private void textBox1_KeyPress(object sender, KeyPressEventArgs e)
         {
             char KeyAsciiNumber = e.KeyChar;
@@ -22,18 +24,25 @@ namespace Calcul
                 {
                     case 43:
                         calculate.Plus();
+                        firstNumberLabel.Text = calculate.A;
                         break;
                     case 45:
                         calculate.Minus();
+                        firstNumberLabel.Text = calculate.A;
+
                         break;
                     case 42:
                         calculate.Mult();
+                        firstNumberLabel.Text = calculate.A;
+
                         break;
                     case 47:
                         calculate.Divide();
+                        firstNumberLabel.Text = calculate.A;
+
                         break;
                     case 61:   
-                        calculate.Result();
+                        var result =calculate.Result();
                         break;
                     case 08:
                         int lenght = InputBox.Text.Length - 1;
@@ -51,8 +60,9 @@ namespace Calcul
                         break;
                     case 13:
                         goto case 61;
-                        
                 }
+                InputBox.Clear();
+
             }
         }
     }

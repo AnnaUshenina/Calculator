@@ -5,8 +5,9 @@ using System.Windows.Forms;
 
 namespace Calcul
 {
-    public static class Program
+    public  class Program
     {
+       
         public static InputAndOutputForm firstform;
         /// <summary>
         /// Главная точка входа для приложения.
